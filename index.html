@@ -1,0 +1,182 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Chhotku Lal Safai Karamchari, Gram Panchayat Panduw, Prayagraj"><link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap" rel="stylesheet"><title>Chhotku Lal</title>
+<style>
+:root{--g:#1f6b3a;--s:#e8851a;--b:#1d4e89;--bg:#fbfaf6;--card:#fff;--tx:#1b2a22;--mu:#5b6b62;--ln:#e3e6df}
+:root[data-theme=dark]{--bg:#0f1a14;--card:#16251c;--tx:#eef3ee;--mu:#9db0a3;--ln:#27382d}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{margin:0;font:17px/1.6 'Mukta',sans-serif;background:var(--bg);color:var(--tx)}
+.top{background:linear-gradient(110deg,var(--g),var(--b));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
+.top b{font-size:20px;flex:1}.top button{background:#ffffff26;color:#fff;border:0;border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+.flag{height:5px;background:linear-gradient(90deg,var(--s) 33%,#fff 33% 66%,var(--g) 66%)}
+.menu{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--ln);display:flex;gap:6px;overflow-x:auto;padding:8px 10px;white-space:nowrap}
+.menu a{padding:6px 14px;border-radius:99px;background:var(--bg);border:1px solid var(--ln);color:var(--tx);text-decoration:none;font-weight:600}
+main{max-width:760px;margin:0 auto;padding:16px}
+.hero{display:flex;gap:16px;align-items:center;padding:16px 0}
+.av{width:84px;height:84px;border-radius:50%;background:var(--s);color:#fff;font-size:38px;display:grid;place-items:center;flex:none}
+h1{margin:0;font-size:28px;line-height:1.2}h2{font-size:22px;margin:28px 0 8px;border-left:6px solid var(--s);padding-left:10px}
+.mu{color:var(--mu)}.pre{white-space:pre-line}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:14px 16px;margin:10px 0}
+.btn{display:inline-block;background:var(--s);color:#fff;border:0;border-radius:10px;padding:12px 20px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.btn.alt{background:var(--g)}.btn.del{background:#b3261e}
+label{display:block;margin:12px 0 4px;font-weight:600}
+input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);border-radius:8px;font:inherit;background:var(--card);color:var(--tx)}
+:focus-visible{outline:3px solid var(--s);outline-offset:2px}
+.ok{background:#e7f4ea;color:#14501f;padding:14px;border-radius:10px;font-weight:700}
+.err{color:#b3261e;font-weight:600;margin-top:8px}
+.st{display:inline-block;padding:2px 12px;border-radius:99px;color:#fff;font-weight:700;background:#8a8f98}
+.st.Resolved{background:var(--g)}.st.Rejected{background:#b3261e}.st.Progress{background:var(--b)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.row>*{flex:1;min-width:120px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.n{font-size:26px;font-weight:800}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.gal img{width:100%;height:140px;object-fit:cover;border-radius:10px;cursor:zoom-in}
+.zoom{position:fixed;inset:0;background:#000d;display:grid;place-items:center;z-index:20;padding:12px}.zoom img{max-width:100%;max-height:100%}
+.av img{width:100%;height:100%;border-radius:50%;object-fit:cover}.card img.w{width:100%;border-radius:10px;margin-top:8px}
+</style></head><body>
+<header class="top"><b data-t="site"></b><button id="lb" onclick="toggleLang()">English</button><button onclick="toggleTheme()" aria-label="theme">◐</button></header><div class="flag"></div>
+<div class="menu"><a href="#top" data-t="home"></a><a href="#complaint" data-t="comp"></a><a href="#track" data-t="trk"></a><a href="#about" data-t="about"></a><a href="#panch" data-t="panch"></a><a href="#service" data-t="serv"></a><a href="#schedule" data-t="sched"></a><a href="#work" data-t="work"></a><a href="#gal" data-t="gal"></a><a href="#news" data-t="news"></a><a href="#notice" data-t="notices"></a><a href="#contact" data-t="contactT"></a></div>
+<main id="top">
+<section class="hero"><div class="av" id="av">छ</div><div><h1>छोटकू लाल</h1><div data-t="role"></div><div class="mu" data-t="place"></div></div></section>
+<div class="card" data-t="welcome"></div>
+<p><a class="btn" href="#complaint" data-t="cta"></a> <a class="btn alt" href="#track" data-t="track"></a></p>
+
+<section id="complaint"><h2 data-t="ctitle"></h2><form id="f" novalidate>
+<label for="name" data-t="name"></label><input id="name" maxlength="100" autocomplete="name">
+<label for="mobile" data-t="mobile"></label><input id="mobile" inputmode="numeric" maxlength="10" autocomplete="tel">
+<label for="category" data-t="cat"></label><select id="category"><option value=""></option><option value="garbage" data-t="garbage"></option><option value="drain" data-t="drain"></option><option value="toilet" data-t="toilet"></option><option value="road" data-t="road"></option><option value="other" data-t="other"></option></select>
+<label for="location" data-t="loc"></label><input id="location" maxlength="200">
+<label for="description" data-t="desc"></label><textarea id="description" rows="4" maxlength="2000"></textarea>
+<div class="err" id="err" role="alert"></div><p><button class="btn" data-t="send"></button></p></form><div id="res"></div></section>
+
+<section id="track"><h2 data-t="ttitle"></h2><form id="tf" novalidate>
+<label for="no" data-t="cno"></label><input id="no" placeholder="CL-261105-12345">
+<label for="tm" data-t="mobile"></label><input id="tm" inputmode="numeric" maxlength="10">
+<p><button class="btn alt" data-t="find"></button></p></form><div id="tres"></div></section>
+
+<section id="about"><h2 data-t="about"></h2><div id="c-about"></div></section>
+<section id="panch"><h2 data-t="panch"></h2><div id="c-panch"></div><h2 data-t="sbm"></h2><div id="c-sbm"></div></section>
+<section id="service"><h2 data-t="serv"></h2><div id="c-service"></div></section>
+<section id="schedule"><h2 data-t="sched"></h2><div id="c-schedule"></div></section>
+<section id="work"><h2 data-t="work"></h2><div id="c-work"></div></section>
+<section id="gal"><h2 data-t="gal"></h2><div class="gal" id="c-photo"></div><p id="more" hidden><button class="btn alt" onclick="showAll=true;draw()" data-t="more"></button></p><div id="c-video"></div></section>
+<section id="news"><h2 data-t="news"></h2><div id="c-news"></div></section>
+<section id="notice"><h2 data-t="notices"></h2><div id="c-notice"></div></section>
+<section id="contact"><h2 data-t="contactT"></h2><div id="c-contact"></div></section>
+<section><h2 data-t="privT"></h2><div class="card pre" data-t="privB"></div><h2 data-t="termT"></h2><div class="card pre" data-t="termB"></div></section>
+
+<section id="admin"><h2>Admin</h2>
+<form id="alogin" novalidate><label for="apw">Password</label><input id="apw" type="password" autocomplete="current-password"><div class="err" id="aerr" role="alert"></div><p><button class="btn alt">Login</button></p></form>
+<div id="apanel" hidden>
+ <p><button class="btn del" onclick="alogout()">Logout</button></p>
+ <div class="grid" id="astats"></div>
+ <h3 data-t="comp"></h3><div id="alist"></div>
+ <h3>नया जोड़ें / Add</h3>
+ <form id="pf" novalidate>
+  <label for="pk">Type</label><select id="pk"><option value="news">news</option><option value="notice">notice</option><option value="service">service</option><option value="schedule">schedule</option><option value="work">work</option><option value="photo">photo</option><option value="video">video</option></select>
+  <label for="pth">शीर्षक (हिंदी)</label><input id="pth" maxlength="200"><label for="pte">Title (English)</label><input id="pte" maxlength="200">
+  <label for="pm">Photo / Video link (https://...)</label><input id="pm" maxlength="500">
+  <label for="pbh">विवरण (हिंदी)</label><textarea id="pbh" rows="3"></textarea><label for="pbe">Details (English)</label><textarea id="pbe" rows="3"></textarea>
+  <div class="err" id="perr" role="alert"></div><p><button class="btn">सेव / Save</button></p></form>
+ <h3>जोड़ी गई सामग्री</h3><div id="aposts"></div>
+ <h3>संपर्क और परिचय</h3><form id="sf" novalidate></form>
+</div></section>
+<p class="mu" data-t="notice"></p>
+</main>
+<script>
+const T={hi:{site:"छोटकू लाल – सफाई कर्मचारी",role:"सरकारी सफाई कर्मचारी",place:"ग्राम पंचायत पांडुव, ब्लॉक बारा, प्रयागराज, उत्तर प्रदेश",
+welcome:"गांव को साफ रखना हम सबकी जिम्मेदारी है। कहीं गंदगी दिखे तो यहां शिकायत दर्ज करें।",cta:"शिकायत दर्ज करें",track:"स्थिति देखें",
+home:"होम",comp:"शिकायत",trk:"स्थिति",about:"परिचय",serv:"सेवाएं",sched:"सफाई कार्यक्रम",work:"सफाई का काम",news:"ताज़ा समाचार",notices:"सूचनाएं",contactT:"संपर्क",
+ctitle:"शिकायत दर्ज करें",name:"आपका नाम",mobile:"मोबाइल नंबर (10 अंक)",cat:"शिकायत का प्रकार",garbage:"कूड़ा / गंदगी",drain:"नाली / जल जमाव",toilet:"शौचालय",road:"सड़क / गली",other:"अन्य",
+loc:"गांव / जगह",desc:"समस्या बताएं (कम से कम 10 अक्षर)",send:"शिकायत भेजें",done:"शिकायत दर्ज हो गई। आपका शिकायत नंबर:",keep:"इसे और अपना मोबाइल नंबर संभालकर रखें।",
+ttitle:"शिकायत की स्थिति",cno:"शिकायत नंबर",find:"स्थिति खोजें",nf:"शिकायत नहीं मिली। नंबर और मोबाइल जांचें।",remarks:"टिप्पणी",
+e_name:"नाम कम से कम 2 अक्षर का लिखें।",e_mobile:"सही 10 अंक का मोबाइल नंबर लिखें।",e_category:"शिकायत का प्रकार चुनें।",e_location:"जगह लिखें।",e_description:"समस्या कम से कम 10 अक्षर में लिखें।",e_server:"कुछ गड़बड़ हुई। थोड़ी देर बाद फिर कोशिश करें।",
+Pending:"लंबित","In Progress":"काम जारी",Resolved:"हल हो गई",Rejected:"अस्वीकृत",empty:"अभी जानकारी नहीं जोड़ी गई है।",call:"फोन करें",mail:"ईमेल",
+panch:"ग्राम पंचायत",sbm:"स्वच्छ भारत मिशन",gal:"फोटो और वीडियो",more:"और फोटो देखें",watch:"वीडियो देखें",map:"नक्शा देखें",
+privT:"गोपनीयता नीति",privB:"शिकायत में हम आपका नाम, मोबाइल नंबर, जगह और समस्या का विवरण लेते हैं।\nइसका उपयोग सिर्फ शिकायत देखने, उस पर काम करने और स्थिति बताने के लिए होता है।\nशिकायत की जानकारी सिर्फ एडमिन देख सकता है।\nअपनी जानकारी हटवाने के लिए संपर्क में दिए नंबर पर बताएं।",
+termT:"नियम और शर्तें",termB:"यह वेबसाइट गांव की सफाई से जुड़ी शिकायतें दर्ज करने और जानकारी देने के लिए है।\nशिकायत में सही जानकारी दें। झूठी या अभद्र शिकायतें हटाई जा सकती हैं।\nशिकायत दर्ज होना काम की गारंटी नहीं है।",
+notice:"यह कोई आधिकारिक सरकारी वेबसाइट नहीं है।",save:"सेव",del:"हटाएं",tot:"कुल",pen:"लंबित",res:"हल",sure:"पक्का हटाएं?"},
+en:{site:"Chhotku Lal – Safai Karamchari",role:"Government Safai Karamchari",place:"Gram Panchayat Panduw, Block Bara, Prayagraj, Uttar Pradesh",
+welcome:"Keeping our village clean is everyone's job. If you see dirt or waste, file a complaint here.",cta:"File a complaint",track:"Check status",
+home:"Home",comp:"Complaint",trk:"Status",about:"About",serv:"Services",sched:"Cleaning schedule",work:"Cleaning work",news:"Latest news",notices:"Notices",contactT:"Contact",
+ctitle:"File a complaint",name:"Your name",mobile:"Mobile number (10 digits)",cat:"Complaint type",garbage:"Garbage / dirt",drain:"Drain / waterlogging",toilet:"Toilet",road:"Road / lane",other:"Other",
+loc:"Village / place",desc:"Describe the problem (min 10 characters)",send:"Send complaint",done:"Complaint registered. Your complaint number:",keep:"Keep this and your mobile number safe.",
+ttitle:"Complaint status",cno:"Complaint number",find:"Find status",nf:"Complaint not found. Check the number and mobile.",remarks:"Remarks",
+e_name:"Enter a name of at least 2 letters.",e_mobile:"Enter a valid 10-digit mobile number.",e_category:"Choose a complaint type.",e_location:"Enter the place.",e_description:"Describe the problem in at least 10 characters.",e_server:"Something went wrong. Try again shortly.",
+Pending:"Pending","In Progress":"In progress",Resolved:"Resolved",Rejected:"Rejected",empty:"Nothing added yet.",call:"Call",mail:"Email",
+panch:"Gram Panchayat",sbm:"Swachh Bharat Mission",gal:"Photos and videos",more:"See more photos",watch:"Watch video",map:"View map",
+privT:"Privacy policy",privB:"In a complaint we collect your name, mobile number, place and problem details.\nThis is used only to review the complaint, act on it and show its status.\nComplaint details are visible only to the admin.\nTo have your data removed, use the contact number listed here.",
+termT:"Terms and conditions",termB:"This website is for filing village cleanliness complaints and sharing information.\nGive correct information. False or abusive complaints may be removed.\nFiling a complaint does not guarantee the work.",
+notice:"This is not an official government website.",save:"Save",del:"Delete",tot:"Total",pen:"Pending",res:"Resolved",sure:"Delete this?"}};
+let lang=localStorage.lang||"hi";const t=k=>T[lang][k]||k;
+const $=id=>document.getElementById(id);
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
+const pick=(o,k)=>o[k+"_"+lang]||o[k+"_hi"]||o[k+"_en"]||"";
+async function api(path,method="GET",body){
+ try{const r=await fetch(path,{method,credentials:"same-origin",headers:{"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined});
+  let d={};try{d=await r.json()}catch(e){}return{ok:r.ok,status:r.status,d};}catch(e){return{ok:false,status:0,d:{error:"server"}};}}
+function toggleLang(){lang=lang=="hi"?"en":"hi";localStorage.lang=lang;apply();}
+function toggleTheme(){const d=document.documentElement.dataset.theme=="dark"?"light":"dark";document.documentElement.dataset.theme=d;localStorage.theme=d;}
+document.documentElement.dataset.theme=localStorage.theme||"light";
+
+let D={posts:[],settings:{}},AC=[],showAll=false;
+const ok=u=>/^https:\/\//i.test(u||"");
+function apply(){document.documentElement.lang=lang;
+ document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t(e.dataset.t));
+ $("lb").textContent=lang=="hi"?"English":"हिन्दी";document.title=t("site");draw();if(!$("apanel").hidden)renderAdmin();}
+const empty=()=>el("div","card mu",t("empty"));
+function draw(){const S=D.settings;
+ const txt=(id,key)=>{const v=S[key+"_"+lang]||S[key+"_hi"]||S[key+"_en"];$(id).replaceChildren(v?el("div","card pre",v):empty());};
+ txt("c-about","about");txt("c-panch","panchayat");txt("c-sbm","sbm");
+ if(ok(S.photo_url)){const i=new Image();i.src=S.photo_url;i.alt="Chhotku Lal";$("av").replaceChildren(i);}
+ ["service","schedule","work","news","notice"].forEach(k=>{const L=D.posts.filter(p=>p.kind==k);
+  $("c-"+k).replaceChildren(...(L.length?L.map(p=>{const d=el("div","card");d.append(el("b",null,pick(p,"title")));
+   if(k!="service")d.append(el("span","mu"," · "+new Date(p.created_at).toLocaleDateString(lang=="hi"?"hi-IN":"en-IN")));
+   const b=pick(p,"body");if(b)d.append(el("div","pre",b));
+   if(k=="work"&&ok(p.media_url)){const i=new Image();i.src=p.media_url;i.className="w";i.loading="lazy";i.alt=pick(p,"title");d.append(i);}return d;}):[empty()]));});
+ const ph=D.posts.filter(p=>p.kind=="photo"&&ok(p.media_url)),sh=showAll?ph:ph.slice(0,8);
+ $("c-photo").replaceChildren(...sh.map(p=>{const i=new Image();i.src=p.media_url;i.alt=pick(p,"title");i.loading="lazy";
+  i.onclick=()=>{const z=el("div","zoom"),b=new Image();b.src=p.media_url;z.append(b);z.onclick=()=>z.remove();document.body.append(z);};return i;}));
+ $("more").hidden=showAll||ph.length<=8;
+ const vd=D.posts.filter(p=>p.kind=="video");
+ $("c-video").replaceChildren(...vd.map(p=>{const d=el("div","card");d.append(el("b",null,pick(p,"title")));
+  if(ok(p.media_url)){const a=el("a",null," "+t("watch"));a.href=p.media_url;a.target="_blank";a.rel="noopener";d.append(a);}return d;}));
+ if(!ph.length&&!vd.length)$("c-photo").replaceChildren(empty());
+ const items=[],addr=S["address_"+lang]||S.address_hi||S.address_en;if(addr)items.push(el("div","card pre",addr));
+ const row=el("p"),btn=(txt,href,cls)=>{const a=el("a","btn "+(cls||""),txt);a.href=href;if(href.startsWith("https"))a.target="_blank";a.rel="noopener";row.append(a," ");};
+ if(S.phone)btn(t("call")+" "+S.phone,"tel:"+S.phone);
+ if(S.whatsapp)btn("WhatsApp","https://wa.me/"+(S.whatsapp.length==10?"91":"")+S.whatsapp,"alt");
+ if(S.email)btn(t("mail"),"mailto:"+S.email);
+ if(ok(S.maps_url))btn(t("map"),S.maps_url,"alt");
+ if(ok(S.facebook))btn("Facebook",S.facebook);
+ if(ok(S.youtube))btn("YouTube",S.youtube,"alt");
+ if(row.children.length)items.push(row);$("c-contact").replaceChildren(...(items.length?items:[empty()]));}
+async function load(){const r=await api("/api/data");if(r.ok)D=r.d;draw();if(!$("apanel").hidden)renderAdmin();}
+
+$("f").onsubmit=async e=>{e.preventDefault();$("err").textContent="";
+ const b={};["name","mobile","category","location","description"].forEach(k=>b[k]=$(k).value);
+ const r=await api("/api/complaints","POST",b);
+ if(!r.ok){$("err").textContent=t("e_"+(r.d.error||"server"))||t("e_server");return;}
+ const ok=el("div","ok",t("done"));ok.append(el("br"),el("big",null,r.d.complaint_no),el("br"),el("small",null,t("keep")));$("res").replaceChildren(ok);$("f").reset();};
+$("tf").onsubmit=async e=>{e.preventDefault();const o=$("tres");o.replaceChildren();
+ const r=await api("/api/track?no="+encodeURIComponent($("no").value)+"&mobile="+encodeURIComponent($("tm").value));
+ if(!r.ok){o.append(el("div","err",r.status==404?t("nf"):t("e_server")));return;}
+ const c=el("div","card");c.append(el("b",null,r.d.complaint_no),el("br"),el("span","st "+r.d.status.split(" ")[0],t(r.d.status)));
+ if(r.d.remarks)c.append(el("p",null,t("remarks")+": "+r.d.remarks));o.append(c);};
+
+/* ---- Admin ---- */
+const SF=[["photo_url","प्रोफाइल फोटो लिंक (https)"],["about_hi","परिचय (हिंदी)",1],["about_en","About (English)",1],["panchayat_hi","ग्राम पंचायत (हिंदी)",1],["panchayat_en","Gram Panchayat (English)",1],["sbm_hi","स्वच्छ भारत मिशन (हिंदी)",1],["sbm_en","Swachh Bharat Mission (English)",1],["phone","फोन नंबर"],["whatsapp","WhatsApp नंबर"],["email","ईमेल"],["address_hi","पता (हिंदी)",1],["address_en","Address (English)",1],["maps_url","Google Maps लिंक (https)"],["facebook","Facebook लिंक (https)"],["youtube","YouTube लिंक (https)"]];
+const sf=$("sf");SF.forEach(([k,l,big])=>{const lb=el("label",null,l);lb.htmlFor="s_"+k;const i=document.createElement(big?"textarea":"input");i.id="s_"+k;if(big)i.rows=3;sf.append(lb,i);});
+sf.append(el("div","err"),el("p"));sf.children[sf.children.length-2].id="serr";sf.lastChild.innerHTML='<button class="btn">सेव</button>';
+function showAdmin(on){$("alogin").hidden=on;$("apanel").hidden=!on;if(on)loadAdmin();}
+async function loadAdmin(){const c=await api("/api/admin/complaints");if(c.status==401){showAdmin(false);return;}AC=c.d||[];renderAdmin();
+ SF.forEach(([k])=>$("s_"+k).value=D.settings[k]||"");}
+function renderAdmin(){
+ const n=s=>AC.filter(c=>c.status==s).length;
+ $("astats").replaceChildren(...[["tot",AC.length],["pen",n("Pending")],["res",n("Resolved")]].map(([l,v])=>{const d=el("div","card");d.append(el("div","n",v),el("div","mu",t(l)));return d;}));
+ $("alist").replaceChildren(...AC.map(c=>{const d=el("div","card");d.append(el("b",null,c.complaint_no));
+  d.append(el("div","mu",c.name+" · "+c.mobile+" · "+t(c.category)+" · "+c.location),el("p",null,c.description));
+  const row=el("div","row"),sel=document.createElement("select");
+  ["Pending","In Progress","Resolved","Rejected"].forEach(x=>{const o=el("option",null,t(x));o.value=x;o.selected=x==c.status;sel.append(o);});
+  const rem=document.createElement("input");rem.value=c.remarks||"";rem.maxLength=500;rem.placeholder=t("remarks");
+  const sv=el("button","btn alt",t("save"));sv.onclick=async()=>{const r=await api("/api/admin/complaints/"+c.complaint_no,"PATCH",{status:sel.value,remarks:rem.value});if(r.ok)loadAdmin();};
+  const dl=el("button","btn del",t("del"));dl.onclick=async()=>{if(confirm(t("sure"))){await api("/api/admin/complaints/"+c.complaint_no,"DELETE");loadAdmin();}};
+  row.append(sel,rem,sv,dl);d.append(row);return d;}));
+ $("aposts").replaceChildren(...D.posts.map(p=>{const d=el("div","card");d.append(el("b",null,p.kind+" · "+(p.title_hi||p.title_en)));
+  const dl=el("button","btn del",t("del"));dl.style.marginTop="8px";dl.onclick=async()=>{if(confirm(t("sure"))){await api("/a
