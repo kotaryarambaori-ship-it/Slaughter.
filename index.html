@@ -1,24 +1,41 @@
 <!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Chhotku Lal Safai Karamchari, Gram Panchayat Panduw, Prayagraj"><link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap" rel="stylesheet"><title>Chhotku Lal</title>
 <style>
-:root{--g:#1f6b3a;--s:#e8851a;--b:#1d4e89;--bg:#fbfaf6;--card:#fff;--tx:#1b2a22;--mu:#5b6b62;--ln:#e3e6df}
+:root{--g:#1f6b3a;--s:#e8851a;--b:#1d4e89;--bg:#f6f8f3;--card:#fff;--tx:#1b2a22;--mu:#5b6b62;--ln:#e3e6df}
 :root[data-theme=dark]{--bg:#0f1a14;--card:#16251c;--tx:#eef3ee;--mu:#9db0a3;--ln:#27382d}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:60px}
-body{margin:0;font:17px/1.6 'Mukta',sans-serif;background:var(--bg);color:var(--tx)}
+body{margin:0;padding-bottom:64px;font:17px/1.6 'Mukta',sans-serif;background:var(--bg);color:var(--tx)}
+section{--c:var(--s)}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 #e8851a88}50%{box-shadow:0 0 0 10px #e8851a00}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .top{background:linear-gradient(110deg,var(--g),var(--b));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
 .top b{font-size:20px;flex:1}.top button{background:#ffffff26;color:#fff;border:0;border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
 .flag{height:5px;background:linear-gradient(90deg,var(--s) 33%,#fff 33% 66%,var(--g) 66%)}
+.banner{position:relative;overflow:hidden;text-align:center;color:#fff;padding:26px 16px 24px;border-radius:0 0 28px 28px;background:linear-gradient(135deg,#e8851a,#1f6b3a 55%,#1d4e89)}
+.banner .av{margin:0 auto 10px;border:4px solid #fff;width:96px;height:96px;animation:float 4s ease-in-out infinite}
+.banner h1{color:#fff;font-size:30px}.banner .sub{opacity:.95}
+.tag{display:inline-block;margin-top:10px;background:#ffffff2e;padding:4px 16px;border-radius:99px;font-weight:600}
+.leaf{position:absolute;font-size:30px;opacity:.35;animation:float 5s ease-in-out infinite}
 .menu{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--ln);display:flex;gap:6px;overflow-x:auto;padding:8px 10px;white-space:nowrap}
-.menu a{padding:6px 14px;border-radius:99px;background:var(--bg);border:1px solid var(--ln);color:var(--tx);text-decoration:none;font-weight:600}
+.menu a{padding:6px 14px;border-radius:99px;background:var(--bg);border:2px solid var(--ln);color:var(--tx);text-decoration:none;font-weight:600}
+.menu a:nth-child(4n+1){border-color:var(--s)}.menu a:nth-child(4n+2){border-color:var(--g)}.menu a:nth-child(4n+3){border-color:var(--b)}.menu a:nth-child(4n){border-color:#9a6bd1}
 main{max-width:760px;margin:0 auto;padding:16px}
-.hero{display:flex;gap:16px;align-items:center;padding:16px 0}
 .av{width:84px;height:84px;border-radius:50%;background:var(--s);color:#fff;font-size:38px;display:grid;place-items:center;flex:none}
-h1{margin:0;font-size:28px;line-height:1.2}h2{font-size:22px;margin:28px 0 8px;border-left:6px solid var(--s);padding-left:10px}
+.av img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+h1{margin:0;font-size:28px;line-height:1.2}
+h2{font-size:22px;margin:30px 0 8px;border-left:6px solid var(--c);padding-left:10px}
 .mu{color:var(--mu)}.pre{white-space:pre-line}
-.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:14px 16px;margin:10px 0}
-.btn{display:inline-block;background:var(--s);color:#fff;border:0;border-radius:10px;padding:12px 20px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
-.btn.alt{background:var(--g)}.btn.del{background:#b3261e}
+.card{background:var(--card);border:1px solid var(--ln);border-top:3px solid var(--c);border-radius:12px;padding:14px 16px;margin:10px 0;animation:up .5s both;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px #0002}
+.welcome{background:linear-gradient(135deg,#fff3e0,#e8f5e9);color:#1b2a22;border:0;font-weight:600}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--s),#f2a65a);color:#fff;border:0;border-radius:12px;padding:12px 20px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .15s}
+.btn:active{transform:scale(.96)}.btn.alt{background:linear-gradient(135deg,var(--g),#4aa36a)}.btn.del{background:#b3261e}.pulse{animation:pulse 2s infinite}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.tile{display:flex;flex-direction:column;align-items:center;gap:4px;padding:16px 8px;border-radius:16px;color:#fff;text-decoration:none;font-weight:700;text-align:center;transition:transform .2s}
+.tile:active,.tile:hover{transform:translateY(-4px) scale(1.03)}.tile i{font-size:30px;font-style:normal}
+.t1{background:linear-gradient(135deg,#e8851a,#f2a65a)}.t2{background:linear-gradient(135deg,#1d4e89,#3b7bc4)}.t3{background:linear-gradient(135deg,#6a3fa0,#9a6bd1)}.t4{background:linear-gradient(135deg,#1f6b3a,#4aa36a)}
 label{display:block;margin:12px 0 4px;font-weight:600}
-input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);border-radius:8px;font:inherit;background:var(--card);color:var(--tx)}
+input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);border-radius:10px;font:inherit;background:var(--card);color:var(--tx)}
 :focus-visible{outline:3px solid var(--s);outline-offset:2px}
 .ok{background:#e7f4ea;color:#14501f;padding:14px;border-radius:10px;font-weight:700}
 .err{color:#b3261e;font-weight:600;margin-top:8px}
@@ -26,16 +43,25 @@ input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);border-
 .st.Resolved{background:var(--g)}.st.Rejected{background:#b3261e}.st.Progress{background:var(--b)}
 .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.row>*{flex:1;min-width:120px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.n{font-size:26px;font-weight:800}
-.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.gal img{width:100%;height:140px;object-fit:cover;border-radius:10px;cursor:zoom-in}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.gal img{width:100%;height:140px;object-fit:cover;border-radius:12px;cursor:zoom-in;transition:transform .2s}.gal img:hover{transform:scale(1.03)}
 .zoom{position:fixed;inset:0;background:#000d;display:grid;place-items:center;z-index:20;padding:12px}.zoom img{max-width:100%;max-height:100%}
-.av img{width:100%;height:100%;border-radius:50%;object-fit:cover}.card img.w{width:100%;border-radius:10px;margin-top:8px}
+.card img.w{width:100%;border-radius:10px;margin-top:8px}
+#complaint{--c:#e8851a}#track{--c:#1d4e89}#about{--c:#1f6b3a}#panch{--c:#6a3fa0}#service{--c:#0f8b8d}#schedule{--c:#e8851a}#work{--c:#c2185b}#gal{--c:#1d4e89}#news{--c:#1f6b3a}#notice{--c:#d84315}#contact{--c:#00796b}#legal{--c:#6d4c41}#admin{--c:#555}
+#complaint h2::before{content:"📝 "}#track h2::before{content:"🔍 "}#about h2::before{content:"🙏 "}#panch h2:nth-of-type(1)::before{content:"🏡 "}#panch h2:nth-of-type(2)::before{content:"🇮🇳 "}
+#service h2::before{content:"🧹 "}#schedule h2::before{content:"🗓️ "}#work h2::before{content:"🛠️ "}#gal h2::before{content:"📷 "}#news h2::before{content:"📰 "}#notice h2::before{content:"📢 "}#contact h2::before{content:"📞 "}#admin h2::before{content:"🔐 "}
+nav.bot{position:fixed;bottom:0;left:0;right:0;z-index:6;background:var(--card);border-top:1px solid var(--ln);display:flex}
+nav.bot a{flex:1;text-align:center;padding:6px 2px;color:var(--tx);text-decoration:none;font-weight:600;font-size:13px}
+nav.bot a i{display:block;font-size:20px;font-style:normal}
+@media(min-width:800px){nav.bot{display:none}body{padding-bottom:0}.tiles{grid-template-columns:repeat(4,1fr)}}
 </style></head><body>
 <header class="top"><b data-t="site"></b><button id="lb" onclick="toggleLang()">English</button><button onclick="toggleTheme()" aria-label="theme">◐</button></header><div class="flag"></div>
+<div class="banner"><span class="leaf" style="left:8%;top:14%">🌿</span><span class="leaf" style="right:10%;top:22%;animation-delay:1s">🍃</span><span class="leaf" style="left:18%;bottom:10%;animation-delay:2s">🧹</span>
+<div class="av" id="av">छ</div><h1>छोटकू लाल</h1><div class="sub" data-t="role"></div><div class="sub" data-t="place"></div><div class="tag" data-t="tag"></div></div>
 <div class="menu"><a href="#top" data-t="home"></a><a href="#complaint" data-t="comp"></a><a href="#track" data-t="trk"></a><a href="#about" data-t="about"></a><a href="#panch" data-t="panch"></a><a href="#service" data-t="serv"></a><a href="#schedule" data-t="sched"></a><a href="#work" data-t="work"></a><a href="#gal" data-t="gal"></a><a href="#news" data-t="news"></a><a href="#notice" data-t="notices"></a><a href="#contact" data-t="contactT"></a></div>
 <main id="top">
-<section class="hero"><div class="av" id="av">छ</div><div><h1>छोटकू लाल</h1><div data-t="role"></div><div class="mu" data-t="place"></div></div></section>
-<div class="card" data-t="welcome"></div>
-<p><a class="btn" href="#complaint" data-t="cta"></a> <a class="btn alt" href="#track" data-t="track"></a></p>
+<div class="card welcome" data-t="welcome"></div>
+<div class="tiles"><a class="tile t1" href="#complaint"><i>📝</i><span data-t="comp"></span></a><a class="tile t2" href="#track"><i>🔍</i><span data-t="trk"></span></a><a class="tile t3" href="#gal"><i>📷</i><span data-t="gal"></span></a><a class="tile t4" href="#contact"><i>📞</i><span data-t="contactT"></span></a></div>
+<p><a class="btn pulse" href="#complaint" data-t="cta"></a> <a class="btn alt" href="#track" data-t="track"></a></p>
 
 <section id="complaint"><h2 data-t="ctitle"></h2><form id="f" novalidate>
 <label for="name" data-t="name"></label><input id="name" maxlength="100" autocomplete="name">
@@ -59,7 +85,7 @@ input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);border-
 <section id="news"><h2 data-t="news"></h2><div id="c-news"></div></section>
 <section id="notice"><h2 data-t="notices"></h2><div id="c-notice"></div></section>
 <section id="contact"><h2 data-t="contactT"></h2><div id="c-contact"></div></section>
-<section><h2 data-t="privT"></h2><div class="card pre" data-t="privB"></div><h2 data-t="termT"></h2><div class="card pre" data-t="termB"></div></section>
+<section id="legal"><h2 data-t="privT"></h2><div class="card pre" data-t="privB"></div><h2 data-t="termT"></h2><div class="card pre" data-t="termB"></div></section>
 
 <section id="admin"><h2>Admin</h2>
 <form id="alogin" novalidate><label for="apw">Password</label><input id="apw" type="password" autocomplete="current-password"><div class="err" id="aerr" role="alert"></div><p><button class="btn alt">Login</button></p></form>
@@ -79,6 +105,7 @@ input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);border-
 </div></section>
 <p class="mu" data-t="notice"></p>
 </main>
+<nav class="bot"><a href="#top"><i>🏠</i><span data-t="home"></span></a><a href="#complaint"><i>📝</i><span data-t="comp"></span></a><a href="#track"><i>🔍</i><span data-t="trk"></span></a><a href="#contact"><i>📞</i><span data-t="contactT"></span></a></nav>
 <script>
 const T={hi:{site:"छोटकू लाल – सफाई कर्मचारी",role:"सरकारी सफाई कर्मचारी",place:"ग्राम पंचायत पांडुव, ब्लॉक बारा, प्रयागराज, उत्तर प्रदेश",
 welcome:"गांव को साफ रखना हम सबकी जिम्मेदारी है। कहीं गंदगी दिखे तो यहां शिकायत दर्ज करें।",cta:"शिकायत दर्ज करें",track:"स्थिति देखें",
@@ -88,7 +115,7 @@ loc:"गांव / जगह",desc:"समस्या बताएं (कम 
 ttitle:"शिकायत की स्थिति",cno:"शिकायत नंबर",find:"स्थिति खोजें",nf:"शिकायत नहीं मिली। नंबर और मोबाइल जांचें।",remarks:"टिप्पणी",
 e_name:"नाम कम से कम 2 अक्षर का लिखें।",e_mobile:"सही 10 अंक का मोबाइल नंबर लिखें।",e_category:"शिकायत का प्रकार चुनें।",e_location:"जगह लिखें।",e_description:"समस्या कम से कम 10 अक्षर में लिखें।",e_server:"कुछ गड़बड़ हुई। थोड़ी देर बाद फिर कोशिश करें।",
 Pending:"लंबित","In Progress":"काम जारी",Resolved:"हल हो गई",Rejected:"अस्वीकृत",empty:"अभी जानकारी नहीं जोड़ी गई है।",call:"फोन करें",mail:"ईमेल",
-panch:"ग्राम पंचायत",sbm:"स्वच्छ भारत मिशन",gal:"फोटो और वीडियो",more:"और फोटो देखें",watch:"वीडियो देखें",map:"नक्शा देखें",
+tag:"स्वच्छ गांव, सुंदर गांव 🌿",panch:"ग्राम पंचायत",sbm:"स्वच्छ भारत मिशन",gal:"फोटो और वीडियो",more:"और फोटो देखें",watch:"वीडियो देखें",map:"नक्शा देखें",
 privT:"गोपनीयता नीति",privB:"शिकायत में हम आपका नाम, मोबाइल नंबर, जगह और समस्या का विवरण लेते हैं।\nइसका उपयोग सिर्फ शिकायत देखने, उस पर काम करने और स्थिति बताने के लिए होता है।\nशिकायत की जानकारी सिर्फ एडमिन देख सकता है।\nअपनी जानकारी हटवाने के लिए संपर्क में दिए नंबर पर बताएं।",
 termT:"नियम और शर्तें",termB:"यह वेबसाइट गांव की सफाई से जुड़ी शिकायतें दर्ज करने और जानकारी देने के लिए है।\nशिकायत में सही जानकारी दें। झूठी या अभद्र शिकायतें हटाई जा सकती हैं।\nशिकायत दर्ज होना काम की गारंटी नहीं है।",
 notice:"यह कोई आधिकारिक सरकारी वेबसाइट नहीं है।",save:"सेव",del:"हटाएं",tot:"कुल",pen:"लंबित",res:"हल",sure:"पक्का हटाएं?"},
@@ -100,7 +127,7 @@ loc:"Village / place",desc:"Describe the problem (min 10 characters)",send:"Send
 ttitle:"Complaint status",cno:"Complaint number",find:"Find status",nf:"Complaint not found. Check the number and mobile.",remarks:"Remarks",
 e_name:"Enter a name of at least 2 letters.",e_mobile:"Enter a valid 10-digit mobile number.",e_category:"Choose a complaint type.",e_location:"Enter the place.",e_description:"Describe the problem in at least 10 characters.",e_server:"Something went wrong. Try again shortly.",
 Pending:"Pending","In Progress":"In progress",Resolved:"Resolved",Rejected:"Rejected",empty:"Nothing added yet.",call:"Call",mail:"Email",
-panch:"Gram Panchayat",sbm:"Swachh Bharat Mission",gal:"Photos and videos",more:"See more photos",watch:"Watch video",map:"View map",
+tag:"Clean village, beautiful village 🌿",panch:"Gram Panchayat",sbm:"Swachh Bharat Mission",gal:"Photos and videos",more:"See more photos",watch:"Watch video",map:"View map",
 privT:"Privacy policy",privB:"In a complaint we collect your name, mobile number, place and problem details.\nThis is used only to review the complaint, act on it and show its status.\nComplaint details are visible only to the admin.\nTo have your data removed, use the contact number listed here.",
 termT:"Terms and conditions",termB:"This website is for filing village cleanliness complaints and sharing information.\nGive correct information. False or abusive complaints may be removed.\nFiling a complaint does not guarantee the work.",
 notice:"This is not an official government website.",save:"Save",del:"Delete",tot:"Total",pen:"Pending",res:"Resolved",sure:"Delete this?"}};
@@ -179,4 +206,16 @@ function renderAdmin(){
   const dl=el("button","btn del",t("del"));dl.onclick=async()=>{if(confirm(t("sure"))){await api("/api/admin/complaints/"+c.complaint_no,"DELETE");loadAdmin();}};
   row.append(sel,rem,sv,dl);d.append(row);return d;}));
  $("aposts").replaceChildren(...D.posts.map(p=>{const d=el("div","card");d.append(el("b",null,p.kind+" · "+(p.title_hi||p.title_en)));
-  const dl=el("button","btn del",t("del"));dl.style.marginTop="8px";dl.onclick=async()=>{if(confirm(t("sure"))){await api("/a
+  const dl=el("button","btn del",t("del"));dl.style.marginTop="8px";dl.onclick=async()=>{if(confirm(t("sure"))){await api("/api/admin/posts/"+p.id,"DELETE");load();}};d.append(el("br"),dl);return d;}));}
+$("alogin").onsubmit=async e=>{e.preventDefault();$("aerr").textContent="";
+ const r=await api("/api/admin/login","POST",{password:$("apw").value});
+ if(r.ok){$("apw").value="";showAdmin(true);}else $("aerr").textContent=r.status==401?"Wrong password":t("e_server");};
+async function alogout(){await api("/api/admin/logout","POST");showAdmin(false);}
+$("pf").onsubmit=async e=>{e.preventDefault();$("perr").textContent="";
+ const r=await api("/api/admin/posts","POST",{kind:$("pk").value,title_hi:$("pth").value,title_en:$("pte").value,body_hi:$("pbh").value,body_en:$("pbe").value,media_url:$("pm").value});
+ if(r.ok){$("pf").reset();load();}else $("perr").textContent="शीर्षक लिखें। फोटो/वीडियो के लिए https:// लिंक ज़रूरी / Title needed; photo/video needs https link";};
+sf.onsubmit=async e=>{e.preventDefault();$("serr").textContent="";const b={};SF.forEach(([k])=>b[k]=$("s_"+k).value);
+ const r=await api("/api/admin/settings","PUT",b);if(r.ok)load();else $("serr").textContent="गलत जानकारी: "+(r.d.field||"");};
+api("/api/admin/me").then(r=>showAdmin(r.ok));
+apply();load();
+</script></body></html>
