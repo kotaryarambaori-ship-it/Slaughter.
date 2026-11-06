@@ -3,10 +3,12 @@ from datetime import date
 from functools import wraps
 import psycopg2, psycopg2.extras
 from flask import Flask, jsonify, request, send_from_directory, session
+from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1)
 app.secret_key = os.environ["SECRET_KEY"]
 app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax",
                   SESSION_COOKIE_SECURE=bool(os.environ.get("RENDER")))
@@ -36,6 +38,7 @@ with db() as c, c.cursor() as cur:
       title_en VARCHAR(200) NOT NULL DEFAULT '', body_hi TEXT NOT NULL DEFAULT '',
       body_en TEXT NOT NULL DEFAULT '', created_at TIMESTAMPTZ NOT NULL DEFAULT now());
     ALTER TABLE posts ADD COLUMN IF NOT EXISTS media_url VARCHAR(500);
+    CREATE TABLE IF NOT EXISTS pledges(id SERIAL PRIMARY KEY, created_at TIMESTAMPTZ NOT NULL DEFAULT now());
     CREATE TABLE IF NOT EXISTS settings(key VARCHAR(30) PRIMARY KEY, value TEXT NOT NULL DEFAULT '');
     """)
 
@@ -58,6 +61,27 @@ def data():
         cur.execute("SELECT key,value FROM settings")
         st = {r["key"]: r["value"] for r in cur.fetchall()}
     return jsonify(posts=posts, settings=st)
+
+@app.get("/api/stats")
+def stats():
+    with db() as c, c.cursor() as cur:
+        cur.execute("SELECT status, count(*) n FROM complaints GROUP BY status")
+        by = {r["status"]: r["n"] for r in cur.fetchall()}
+        cur.execute("SELECT category, count(*) n FROM complaints GROUP BY category")
+        cats = {r["category"]: r["n"] for r in cur.fetchall()}
+        cur.execute("SELECT count(*) n FROM pledges")
+        pl = cur.fetchone()["n"]
+    return jsonify(total=sum(by.values()), resolved=by.get("Resolved", 0), progress=by.get("In Progress", 0),
+                   pending=by.get("Pending", 0), cats=cats, pledges=pl)
+
+@app.post("/api/pledge")
+@limiter.limit("3 per day")
+def pledge():
+    with db() as c, c.cursor() as cur:
+        cur.execute("INSERT INTO pledges DEFAULT VALUES")
+        cur.execute("SELECT count(*) n FROM pledges")
+        n = cur.fetchone()["n"]
+    return jsonify(pledges=n), 201
 
 @app.post("/api/complaints")
 @limiter.limit("5 per hour")
